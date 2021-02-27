@@ -1,14 +1,22 @@
 package com.br.ordemservico.ordemservico.models;
 
+import java.io.Serializable;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 
 @Entity
-@Table(name="CLIENTE")
-public class ClienteEntity {
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+public class Clientes implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -17,14 +25,15 @@ public class ClienteEntity {
 	private String telefone;
 	private String email;
 	
-	public ClienteEntity(Long id, String nome, String endereco, String telefone, String email) {
-		super();
-		this.nome = nome;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.email = email;
+	@OneToMany (targetEntity = Equipamento.class, fetch = FetchType.EAGER, mappedBy="clienteId" )
+ 	private Set<Equipamento> equipamentos;
+	
+	public Clientes() {
 	}
-
+	public Clientes(Long id) {
+		setId(id);
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -63,6 +72,10 @@ public class ClienteEntity {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	

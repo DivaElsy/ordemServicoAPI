@@ -1,1 +1,0 @@
-INSERT INTO CLIENTE(nome, endereco, telefone, email) VALUES('Cliente1', 'Rua 123', '47-999999', 'cliente1@email.com');
