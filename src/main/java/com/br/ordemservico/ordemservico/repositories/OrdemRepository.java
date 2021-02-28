@@ -1,7 +1,5 @@
 package com.br.ordemservico.ordemservico.repositories;
 
-import java.util.Date;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,4 +20,5 @@ public interface OrdemRepository extends JpaRepository<Ordem, Long>{
 			+ " where ord.id = :ordemId"
 			)
 	OrdemDTO consultaOrdemPorId(@Param("ordemId") Long ordemId);
+	
 }

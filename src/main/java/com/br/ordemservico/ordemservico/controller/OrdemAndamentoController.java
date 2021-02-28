@@ -23,6 +23,10 @@ import com.br.ordemservico.ordemservico.repositories.OrdemAndamentoRepository;
 import com.br.ordemservico.ordemservico.repositories.OrdemRepository;
 import com.br.ordemservico.ordemservico.repositories.ResponsavelRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(value = "Ordem Andamento")
 @RestController
 @RequestMapping("/ordemAndamento")
 public class OrdemAndamentoController {
@@ -51,6 +55,7 @@ public class OrdemAndamentoController {
 		}
 	}
 	
+	@ApiOperation(notes = "Grava o andamento da ordem na tabela Ordem_andamento", value = "ordem_andamento")
 	@RequestMapping(value="/cadastrarOcorrenciaOrdem", method = RequestMethod.POST)
 	public ResponseEntity<OrdemAndamentoDTO> gravar(@RequestBody OrdemAndamentoForm ordemAndamento) {
 		
@@ -71,6 +76,7 @@ public class OrdemAndamentoController {
 		return new ResponseEntity<>(oa, HttpStatus.OK);
 	}
 	
+	@ApiOperation(notes = "Conulta as ordens pendentes por resposável", value = "ordem_andamento")
 	@RequestMapping(value="/consultaOrdensPendentesPorResponsavel", method = RequestMethod.GET)
 	public ResponseEntity<List<OrdemAndamentoResDTO>> consultaOrdensPendentesPorResponsavel(Long responsavelId) {
 		

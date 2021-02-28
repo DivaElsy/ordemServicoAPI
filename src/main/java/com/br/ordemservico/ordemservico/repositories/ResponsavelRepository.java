@@ -19,4 +19,5 @@ public interface ResponsavelRepository extends JpaRepository<Responsavel, Long>{
 			)
 	
 	ResponsavelDTO consultaResponsavelPorId(@Param("responsavelId") Long responsavelId);
+	
 }	

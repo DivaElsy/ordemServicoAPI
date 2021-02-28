@@ -73,11 +73,6 @@ public class Clientes implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
 	
 	
 }

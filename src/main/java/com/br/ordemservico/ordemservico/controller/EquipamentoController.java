@@ -16,6 +16,10 @@ import com.br.ordemservico.ordemservico.models.Equipamento;
 import com.br.ordemservico.ordemservico.repositories.ClienteRepository;
 import com.br.ordemservico.ordemservico.repositories.EquipamentoRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(value = "Equipamento")
 @RestController
 @RequestMapping("/equipamentos")
 public class EquipamentoController {
@@ -26,6 +30,7 @@ public class EquipamentoController {
 	@Autowired
 	ClienteRepository clienteRepository;
 	
+	@ApiOperation(value = "Retorna a informação do Equipamento consultado")
 	@RequestMapping(value="/consultarEquipamentoPorId", method = RequestMethod.GET)
 	public ResponseEntity<EquipamentoDTO> lista(Long equipamentoId) {
 		
@@ -40,6 +45,7 @@ public class EquipamentoController {
 		}
 	}
 	
+	@ApiOperation(notes = "Grava um equipamento na tabela Equipamento", value = "equipamento")
 	@RequestMapping(value="/cadastrarEquipamento", method = RequestMethod.POST)
 	public ResponseEntity<EquipamentoDTO> gravar(@RequestBody EquipamentoForm equipamento) {
 		

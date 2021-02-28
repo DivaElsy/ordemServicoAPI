@@ -15,6 +15,10 @@ import com.br.ordemservico.ordemservico.models.Clientes;
 import com.br.ordemservico.ordemservico.models.Responsavel;
 import com.br.ordemservico.ordemservico.repositories.ResponsavelRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(value = "Responsavel")
 @RestController
 @RequestMapping("/responsavel")
 public class ResponsavelController {
@@ -22,6 +26,7 @@ public class ResponsavelController {
 	@Autowired
 	ResponsavelRepository responsavelRepository;
 	
+	@ApiOperation(value = "Cadastra um responsável na tabela Responsável")
 	@RequestMapping(value="/cadastrarResponsavel", method = RequestMethod.POST)
 	public ResponseEntity<ResponsavelDTO> gravar(String nome) {
 		

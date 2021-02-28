@@ -20,6 +20,10 @@ import com.br.ordemservico.ordemservico.repositories.EquipamentoRepository;
 import com.br.ordemservico.ordemservico.repositories.OrdemAndamentoRepository;
 import com.br.ordemservico.ordemservico.repositories.OrdemRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(value = "Ordem")
 @RestController
 @RequestMapping("/ordem")
 public class OrdemController {
@@ -33,6 +37,7 @@ public class OrdemController {
 	@Autowired
 	OrdemAndamentoRepository ordemAndamentoRepository;
 	
+	@ApiOperation(value = "Retorna a informação da Ordem consultada")
 	@RequestMapping(value="/consultarOrdemPorId", method = RequestMethod.GET)
 	public ResponseEntity<OrdemDTO> consulta(Long ordemId) {
 		
@@ -48,6 +53,7 @@ public class OrdemController {
 		}
 	}
 	
+	@ApiOperation(notes = "Grava a ordem na tabela Ordem", value = "ordem")
 	@RequestMapping(value="/cadastrarOrdem", method = RequestMethod.POST)
 	public ResponseEntity<OrdemDTO> gravar(@RequestBody OrdemForm ordem) {
 		
@@ -64,6 +70,7 @@ public class OrdemController {
 		return new ResponseEntity<>(o, HttpStatus.OK);
 	}
 	
+	@ApiOperation(notes = "Atualiza o status da ordem, se o status for FINALIZADA, grava a data fim com a data corrente", value = "ordem")
 	@RequestMapping(value="/atualizaOrdem", method = RequestMethod.PUT)
 	public ResponseEntity<OrdemDTO> atualizaOrdem(Long ordemId, StatusOrdem status) {
 		

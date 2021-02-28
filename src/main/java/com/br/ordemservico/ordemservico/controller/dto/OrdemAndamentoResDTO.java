@@ -55,7 +55,7 @@ public class OrdemAndamentoResDTO {
 		return dataOcorrencia;
 	}
 	
-	public String getDescricaoOcorrenca() {
+	public String getDescricaoOcorrencia() {
 		return descricaoOcorrencia;
 	}
 	
