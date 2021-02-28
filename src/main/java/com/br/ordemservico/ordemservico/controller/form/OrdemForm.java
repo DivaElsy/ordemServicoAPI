@@ -29,12 +29,4 @@ public class OrdemForm {
 		return ordem;
 	}
 	
-	public Ordem atualizaOrdem(OrdemDTO o, StatusOrdem status) {
-		Ordem ordem = new Ordem();
-		ordem.setId(o.getId());
-		ordem.setDataFim(Calendar.getInstance().getTime());
-		ordem.setStatus(status);
-	
-		return ordem;
-	}
 }

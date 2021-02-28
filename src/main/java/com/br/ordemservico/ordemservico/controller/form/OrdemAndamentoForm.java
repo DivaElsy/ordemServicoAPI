@@ -5,7 +5,7 @@ import java.util.Date;
 public class OrdemAndamentoForm {
 	
 	private Long ordemId;
-	private String responsavel;
+	private Long responsavelId;
 	private String descricao;
 	
 	public Long getOrdemId() {
@@ -14,11 +14,11 @@ public class OrdemAndamentoForm {
 	public void setOrdemId(Long ordemId) {
 		this.ordemId = ordemId;
 	}
-	public String getResponsavel() {
-		return responsavel;
+	public Long getResponsavelId() {
+		return responsavelId;
 	}
-	public void setResponsavel(String responsavel) {
-		this.responsavel = responsavel;
+	public void setResponsavelId(Long responsavelId) {
+		this.responsavelId = responsavelId;
 	}
 	public String getDescricao() {
 		return descricao;

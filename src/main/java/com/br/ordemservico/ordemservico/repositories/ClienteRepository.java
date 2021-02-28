@@ -20,13 +20,6 @@ public interface ClienteRepository extends JpaRepository<Clientes, Long> {
 	
 	ClienteDTO consultaClientePorId(@Param("clienteId") Long clienteId);
 	
-	@Query
-	("    select new com.br.ordemservico.ordemservico.controller.dto.ClienteDTO("
-			+ "cli.id, cli.nome, cli.endereco, cli.telefone, cli.email) "
-			+ " from Clientes cli "
-			+ " where cli.id like :clienteNome"
-			)
 	
-	ClienteDTO consultaClientePorNome(@Param("clienteNome") String clienteNome);
 	
 }

@@ -23,7 +23,9 @@ public class Ordem_Andamento implements Serializable {
 	@JoinColumn (name = "OrdemId", nullable=true)
 	private Ordem ordemId;
 	
-	private String responsavel;
+	@ManyToOne (targetEntity = Responsavel.class, fetch = FetchType.LAZY)
+	@JoinColumn (name = "ResponsavelId", nullable=true)
+	private Responsavel responsavelId;
 	
 	private Date dataOcorrencia;
 	
@@ -45,12 +47,12 @@ public class Ordem_Andamento implements Serializable {
 		this.ordemId = ordemId;
 	}
 
-	public String getResponsavel() {
-		return responsavel;
+	public Responsavel getResponsavel() {
+		return responsavelId;
 	}
 
-	public void setResponsavel(String responsavel) {
-		this.responsavel = responsavel;
+	public void setResponsavel(Responsavel responsavelId) {
+		this.responsavelId = responsavelId;
 	}
 
 	public Date getDataOcorrencia() {
